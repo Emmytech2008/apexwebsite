@@ -1,0 +1,624 @@
+
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        html{
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: #f8fafc;
+            font-family: Arial, sans-serif;
+            overflow-x: hidden;
+            
+        }
+
+        /* ── HEADER ── */
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: navy;
+            z-index: 100;
+            top: 0;
+            position: sticky;
+            border-bottom: solid red 3px;
+            padding: 8px 20px;
+            gap: 10px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-shrink: 0;
+        }
+
+        .logo img {
+            height: 55px;
+            width: 55px;
+            border-radius: 50%;
+            border: solid black 2px;
+            box-shadow: 2px 4px 8px black;
+        }
+
+        .logo p {
+            font-size: clamp(13px, 2.5vw, 20px);
+            font-weight: bold;
+            color: white;
+            white-space: nowrap;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+        }
+
+        nav ul {
+            display: flex;
+            gap: clamp(10px, 2vw, 40px);
+            list-style: none;
+        }
+
+        nav ul li {
+            list-style: none;
+        }
+
+        nav a {
+            text-decoration: none;
+            font-size: clamp(12px, 1.5vw, 18px);
+            color: white;
+        }
+
+        nav a:hover { color: red; }
+        nav a:active { color: orange; }
+
+        /* Hamburger */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 5px;
+        }
+
+        .hamburger span {
+            display: block;
+            width: 25px;
+            height: 3px;
+            background: white;
+            border-radius: 3px;
+            transition: all 0.3s;
+        }
+
+        .buynow {
+            background-color: red;
+            color: whitesmoke;
+            font-size: clamp(14px, 2vw, 20px);
+            padding: 8px 14px;
+            border: none;
+            border-radius: 10px;
+            box-shadow: 2px 4px 8px black;
+            cursor: pointer;
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+
+        .buynow:hover { background: blue; }
+        .buynow:active { background: green; }
+
+        /* Mobile nav drawer */
+        .mobile-nav {
+            display: none;
+            background-color: navy;
+            padding: 15px 20px;
+            border-bottom: solid red 3px;
+        }
+
+        .mobile-nav.open {
+            display: block;
+        }
+
+        .mobile-nav a {
+            display: block;
+            text-decoration: none;
+            color: white;
+            font-size: 18px;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.15);
+        }
+
+        .mobile-nav a:last-child { border-bottom: none; }
+        .mobile-nav a:hover { color: red; }
+
+        /* ── HERO ── */
+        .apex-flex {
+            display: flex;
+            padding-top: 30px;
+            justify-content: space-around;
+            align-items: center;
+            padding: 20px;
+            gap: 30px;
+            flex-wrap: wrap;
+            height: 100vh;
+            background-size: cover;
+            background-position: center;
+            animation: chbg 20s infinite;
+            /* position: relative;
+            overflow: hidden; */
+            /* background-image: url(/images/back4.jpg);
+            background-image: url(/images/back3.jpg);
+            background-image: url(/images/back2.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            height: 600px;
+            background-position: center;
+        } */
+        }
+
+        @keyframes chbg{
+            0%{
+                background-image: linear-gradient(rgba(0,0,0,0.5)), url(./images/back1.jpg)
+            }
+             25%{
+                background-image: linear-gradient(rgba(0,0,0,0.5)), url(./images/back2.jpg)
+            }
+             50%{
+                background-image: linear-gradient(rgba(0,0,0,0.5)), url(./images/back3.jpg)
+            }
+             75%{
+                background-image: linear-gradient(rgba(0,0,0,0.5)), url(./images/back4.jpg)
+            }
+             100%{
+                background-image: linear-gradient(rgba(0,0,0,0.5)), url(./images/logo1.jpg)
+            }
+        }
+
+        .hero-bg{
+            position: absolute;
+            inset: 0;
+            background-size: cover;
+            background-position: center;
+            opacity: 0;
+            transition: opacity 3s ease-in-out;
+            z-index: 0;
+        }
+
+        .hero-bg:active{
+            opacity: 1;
+        }
+
+    
+        .welcome {
+            flex: 1;
+            min-width: 280px;
+            max-width: 550px;
+        }
+
+        .welcome h1 {
+            font-size: clamp(28px, 5vw, 50px);
+            color: white;
+        }
+
+        .welcome h2 {
+            font-size: clamp(16px, 2.5vw, 24px);
+            margin-top: 30px;
+             color: white;
+        }
+
+        .welcome p {
+            margin-top: 30px;
+            font-size: clamp(14px, 1.8vw, 16px);
+            line-height: 1.6;
+            max-width: 100%;
+             color: white;
+        }
+
+        .hero-img-wrap {
+            flex: 1;
+            min-width: 280px;
+            max-width: 600px;
+        }
+
+        .hero-img-wrap img {
+            width: 100%;
+            border-radius: 25px;
+            border: solid black 2px;
+            box-shadow: 5px 10px 15px black;
+        }
+
+        .brl {
+            display: flex;
+            gap: 12px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .pbuy, .rprop, .lprop {
+            background-color: orangered;
+            color: white;
+            cursor: pointer;
+            font-family: Arial, sans-serif;
+            font-size: clamp(13px, 1.8vw, 18px);
+            border: none;
+            padding: 10px 14px;
+            border-radius: 10px;
+            box-shadow: 2px 4px 8px black;
+            transition: background 0.2s;
+            text-decoration: none;
+        }
+
+        .pbuy:hover, .rprop:hover, .lprop:hover { background: blue; }
+        .pbuy:active, .rprop:active, .lprop:active { background: green; }
+
+        /* ── CITIES ── */
+        .city {
+            margin-top: 60px;
+            padding: 0 20px;
+            margin-bottom:20px;
+        }
+
+        .city h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: clamp(22px, 4vw, 45px);
+            color: darkblue;
+            animation: fadeup 3s infinite;
+        }
+
+        .cityflex {
+            display: flex;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            justify-items: center;
+        }
+
+        .cityalign {
+            text-align: center;
+        }
+
+        .city img {
+            height: 200px;
+            width: 220px;
+            border: solid black 2px;
+            border-radius: 15px;
+            box-shadow: 2px 4px 10px black;
+            object-fit: cover;
+            /* width: 100%; */
+            max-width: 250px;
+        }
+
+        .cityalign h2 {
+            font-family: monospace;
+            margin-top: 12px;
+            font-weight: bold;
+            font-size: clamp(13px, 2vw, 18px);
+        }
+
+        /* ── PROOF LOGOS ── */
+        .proof-logo {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 20px;
+            justify-items: center;
+            margin-top: 60px;
+            padding: 0 20px;
+        }
+
+        .proof-logo img {
+            width: 130px;
+            height: 130px;
+            border: solid black 2px;
+            border-radius: 50%;
+            box-shadow: 2px 4px 10px black;
+            object-fit: cover;
+        }
+
+        /* ── SERVICES ── */
+        .our-ser {
+            max-width: 800px;
+            width: 90%;
+            background-color: rgb(187, 174, 174);
+            border-radius: 30px;
+            border: solid black 2px;
+            margin: 50px auto 0;
+            padding: 25px;
+            box-shadow: 5px 10px 15px rgba(0,0,0,0.3);
+        }
+
+        .our-ser h1 {
+            text-align: center;
+            color: darkblue;
+            font-weight: bold;
+            margin-bottom: 15px;
+            font-size: clamp(20px, 3vw, 30px);
+            animation: fadeup 3s infinite;
+        }
+         @keyframes fadeup {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .our-ser p {
+            font-size: clamp(13px, 1.8vw, 16px);
+            line-height: 1.7;
+        }
+
+        /* ── FOR SALE CIRCLES ── */
+        .forsale {
+            margin-top: 40px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+            justify-items: center;
+            padding: 0 20px;
+        }
+
+        .forsale img {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            border: solid black 2px;
+            box-shadow: 2px 4px 10px black;
+            object-fit: cover;
+        }
+
+        /* ── PROPERTIES FOR SALE ── */
+        #propfor {
+            color: red;
+            margin-top: 60px;
+            text-align: center;
+            font-size: clamp(22px, 4vw, 40px);
+            animation: fadeup 3s infinite;
+        }
+
+        .saleprop-flex {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            padding: 20px;
+            margin-top: 10px;
+        }
+
+        .saleprop {
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .saleprop img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            box-shadow: 2px 4px 10px black;
+            margin-top: 10px;
+            border-radius: 15px;
+            margin-bottom: 10px;
+            border: solid green 3px;
+        }
+
+        .saleprop p { font-size: clamp(13px, 2vw, 16px); }
+        .saleprop h2 { font-size: clamp(14px, 2.5vw, 20px); }
+
+        /* ── INTERIOR VIDEOS ── */
+        .int-video {
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        .int-video h1 {
+            text-align: center;
+            color: red;
+            margin-top: 70px;
+            font-family: cursive;
+            font-weight: bold;
+            font-size: clamp(20px, 3.5vw, 36px);
+            animation: fadeup 3s infinite;
+        }
+
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .int-video video {
+            width: 100%;
+            height: 250px;
+            border-radius: 15px;
+            border: solid black 2px;
+            box-shadow: 2px 4px 10px black;
+            object-fit: cover;
+        }
+
+        /* ── PAY & MOVE IN ── */
+        .pay-section {
+            margin-top: 60px;
+            padding: 0 20px;
+        }
+
+        .pay-move-title {
+            text-align: center;
+            color: blue;
+            font-size: clamp(22px, 4vw, 40px);
+            animation: fadeup 1s ease forwards;
+        }
+
+        .pay-card {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .pay-card img {
+            width: 100%;
+            max-width: 900px;
+            height: auto;
+            max-height: 500px;
+            object-fit: cover;
+            margin-bottom: 15px;
+            border: solid black 2px;
+            box-shadow: 2px 4px 10px black;
+            border-radius: 10px;
+        }
+
+        .pay-card h1 {
+            color: black;
+            font-size: clamp(18px, 3vw, 28px);
+        }
+
+        .pay-card h2 {
+            color: black;
+            font-weight: bold;
+            font-size: clamp(16px, 2.5vw, 24px);
+        }
+
+        /* ── FOOTER ── */
+        footer {
+            background-color: red;
+            font-size: clamp(18px, 3vw, 32px);
+            text-align: center;
+            margin-top: 80px;
+            padding: 15px;
+            color: white;
+        }
+
+        /* ── ANIMATION ── */
+       
+
+        /* ── MOBILE BREAKPOINT ── */
+        @media (max-width: 768px) {
+            /* Hide desktop nav, show hamburger */
+            nav { display: none !important; }
+            .hamburger { display: flex; }
+
+            /* Hero stacks vertically */
+            .apex-flex {
+                flex-direction: column;
+                /* padding-top: 15px; */
+                padding: 40px 20px 30px;
+                gap: 15px;
+                height: auto;
+                min-height: unset;
+                align-items: flex-start;
+            }
+
+            .hero-img-wrapimg{
+                width: 180px;
+                height: auto;
+            }
+
+            .welcome, .hero-img-wrap {
+                max-width: 100%;
+                width: 100%;
+            }
+
+            /* Hero image: remove white box look */
+            .hero-img-wrap img {
+                border-radius: 15px;
+            }
+
+            .brl {
+                justify-content: flex-start;
+                flex-wrap: wrap;
+                gap: 10px;
+            }
+
+            /* Cities: 2 columns on mobile */
+            .cityflex {
+                display: flex;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 25px;
+                padding: 0 10px;
+                justify-content: space-around;
+                width: 100%;
+            }
+
+            .city img {
+                max-width: 100%;
+                height: 130px;
+            }
+
+            /* Proof logos: 4 in a row but smaller */
+            .proof-logo {
+                grid-template-columns: repeat(4, 1fr);
+                gap: 10px;
+                padding: 0 10px;
+                margin-top: 30px;
+            }
+
+            .proof-logo img {
+                width: 100%;
+                height: auto;
+                aspect-ratio: 1;
+            }
+
+            /* Services box full width */
+            .our-ser {
+                width: 95%;
+                padding: 18px;
+                margin-top: 30px;
+            }
+
+            /* Sale circles: 2 per row */
+            .forsale {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
+                padding: 0 15px;
+                margin-top: 25px;
+            }
+
+            .forsale img {
+                width: 100%;
+                height: auto;
+                aspect-ratio: 1;
+                max-width: 160px;
+            }
+
+            /* Property cards: 2 per row on mobile */
+            .saleprop-flex {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 12px;
+                padding: 12px;
+            }
+
+            .saleprop img {
+                height: 150px;
+            }
+
+            /* Videos: single column, full width */
+            .video-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+                padding: 0 15px;
+            }
+
+            .int-video video {
+                height: 220px;
+                margin-left: 0;
+            }
+
+            /* Pay & Move-In */
+            .pay-section {
+                padding: 0 15px;
+            }
+
+            /* Reduce large gaps */
+            .city { margin-top: 35px; }
+            #propfor { margin-top: 35px; }
+            .int-video h1 { margin-top: 40px; }
+            .pay-section { margin-top: 35px; }
+            footer { margin-top: 40px; }
+        }
+    
+        
